@@ -1,10 +1,9 @@
 # Grad Practice
 
-Collaborative practice of grad-program concepts.
+Collaborative practice of grad-programme concepts.
 
 Please adhere to the folder structure:
-```
-project   
+```   
 └───<collaborator_1>
 |	└───<content>
 └───<collaborator_2>
