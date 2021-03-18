@@ -13,6 +13,8 @@ public class CrudApplication {
 		addPlaceService.addPlace("Dodgy Roger", "Parkhurst");
 		addPlaceService.addPlace("Hudson's Burgers", "Parkhurst");
 		addPlaceService.addPlace("Lock, Stock, Beer", "Fourways");
+		addPlaceService.addPlace("New Place 1", "Suburb 1");
+		addPlaceService.addPlace("New Place 2", "Suburb 2");
 	}
 
 }
