@@ -5,17 +5,16 @@ import com.mongodb.client.model.Filters;
 import com.mongodb.client.result.DeleteResult;
 import com.mongodb.client.result.UpdateResult;
 import org.bson.Document;
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import javax.print.Doc;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class MongoTest {
     MongoClient mongoClient;
@@ -34,7 +33,7 @@ public class MongoTest {
             System.out.println(doc);
     }
 
-    @Before
+    @BeforeEach
     public void setup() {
         mongoClient = new MongoClient();
         db = mongoClient.getDatabase("testDb");
@@ -80,7 +79,7 @@ public class MongoTest {
 
         mongoCollection.insertOne(docBeforeUpdate);
         UpdateResult updateResult = mongoCollection.updateOne(Filters.eq("_id", "1"), new Document("$set",docAfterUpdate));
-        Assert.assertEquals(1, updateResult.getModifiedCount());
+        assertEquals(1, updateResult.getModifiedCount());
     }
 
     @Test
@@ -92,7 +91,7 @@ public class MongoTest {
         assertEquals(1,deleteResult.getDeletedCount());
     }
 
-    @After
+    @AfterEach
     public void teardown() {
         mongoCollection.drop();
         db.drop();
