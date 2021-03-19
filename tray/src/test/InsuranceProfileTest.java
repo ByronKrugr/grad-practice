@@ -1,9 +1,11 @@
-import com.dvt.*;
-import org.junit.Before;
-import org.junit.Test;
+import com.dvt.main.*;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public class InsuranceProfileTest {
     Employee employee = null;
@@ -18,7 +20,7 @@ public class InsuranceProfileTest {
         assertEquals(expected, salarySlip.getEmployee().getInsuranceProfile().getInsuranceRate(), 0.0);
     }
 
-    @Before
+    @BeforeEach
     public void setup() {
         employee = new Employee("11", "Taylor", 8060.0, new TaxProfile(), new InsuranceProfile());
         salarySlip = new SalarySlipGenerator().generateSalarySlip(employee);

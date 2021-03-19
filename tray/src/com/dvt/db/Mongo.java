@@ -1,4 +1,4 @@
-package db;
+package com.dvt.db;
 
 import com.mongodb.BasicDBObject;
 import com.mongodb.MongoClient;
@@ -39,7 +39,7 @@ public class Mongo {
 
     public void insertDocument(String name, String salary) {
         updateCounterCollection();
-        Document document = new Document("_id", Long.toString(counterCollection.countDocuments()))
+        Document document = new Document("_id", Long.toString(counterCollection.count()))
                 .append("name", name)
                 .append("salary", salary);
         mongoCollection.insertOne(document);

@@ -1,4 +1,4 @@
-package com.dvt;
+package com.dvt.main;
 
 public interface TaxProfileInterface {
     double getMonthlyTaxPayable();

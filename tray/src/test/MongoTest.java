@@ -5,11 +5,11 @@ import com.mongodb.client.model.Filters;
 import com.mongodb.client.result.DeleteResult;
 import com.mongodb.client.result.UpdateResult;
 import org.bson.Document;
+
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import javax.print.Doc;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,6 +31,12 @@ public class MongoTest {
         List<Document> docs = mongoCollection.find().into(new ArrayList<>());
         for (Document doc : docs)
             System.out.println(doc);
+    }
+
+    private int countDocuments() {
+        List<Document> list = mongoCollection.find().into(new ArrayList<>());
+
+        return list.size();
     }
 
     @BeforeEach
@@ -60,7 +66,7 @@ public class MongoTest {
     public void insertDocument() throws Exception {
         Document doc = new Document("_id", 1).append("name", "taylor");
         mongoCollection.insertOne(doc);
-        assertEquals(1, mongoCollection.countDocuments());
+        assertEquals(1, mongoCollection.count());
     }
 
     @Test

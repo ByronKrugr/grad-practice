@@ -1,9 +1,9 @@
-import com.dvt.*;
-import org.junit.Before;
-import org.junit.Test;
+import com.dvt.main.*;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class TaxProfileTest {
     private SalarySlipInterface salarySlip = null;
@@ -23,7 +23,7 @@ public class TaxProfileTest {
         assertEquals(expected, salarySlip.getEmployee().getTaxProfile().getMonthlyTaxFreeAllowance(), 0.00);
     }
 
-    @Before
+    @BeforeEach
     public void setup() throws Exception {
         taxProfile = new TaxProfile();
         employee = new Employee("111", "Taylor", 12000.00, taxProfile, new InsuranceProfile());
