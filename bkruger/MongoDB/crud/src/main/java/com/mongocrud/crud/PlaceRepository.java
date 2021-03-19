@@ -13,17 +13,17 @@ import org.bson.Document;
 
 import java.time.Instant;
 import java.time.OffsetDateTime;
-import java.util.Arrays;
+import java.util.*;
 
 import com.mongodb.client.MongoCursor;
 import static com.mongodb.client.model.Filters.*;
 import com.mongodb.client.result.DeleteResult;
 import static com.mongodb.client.model.Updates.*;
 import com.mongodb.client.result.UpdateResult;
-import java.util.ArrayList;
-import java.util.List;
+import org.bson.types.ObjectId;
 
-public class AddPlaceService {
+public class PlaceRepository {
+    
     private MongoCollection<Document> collection;
 
     public void setUp(){
@@ -43,4 +43,25 @@ public class AddPlaceService {
                 .append("googleMapsPlaceId", "1Yyhsju7wb&ebsuCchegYs");
         this.collection.insertOne(d);
     }
+
+    public void removePlace(String id){
+        this.collection.deleteOne(eq("id", new ObjectId(id)));
+    }
+
+    public Document getPlace(String id){
+        return collection.find(eq("_id", new ObjectId(id))).first();
+    }
+
+//    public Document updatePlace(String id, HashMap<String, String> updateValues){
+//        Document document = getPlace(id);
+//        Set<String> allKeys = document.keySet();
+//        Set<String> updateKeys = updateValues.keySet();
+//        for (String allKeysKey : allKeys){
+//            for (String updateKeysKey : updateKeys){
+//                if (allKeysKey == updateKeysKey)
+//                    document.append(updateKeysKey, updateValues.get(updateKeysKey));
+//            }
+//        }
+//        collection.updateOne(eq("_id", new ObjectId(id)), set(""))
+//    }
 }
