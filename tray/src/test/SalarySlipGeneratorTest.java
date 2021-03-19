@@ -1,9 +1,11 @@
-import com.dvt.*;
-import org.junit.Before;
-import org.junit.Test;
+import com.dvt.main.*;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public class SalarySlipGeneratorTest {
     private SalarySlipInterface salarySlip = null;
@@ -23,7 +25,7 @@ public class SalarySlipGeneratorTest {
         assertEquals(expected, salarySlip.getMonthlyGrossSalary(), 0.00);
     }
 
-    @Before
+    @BeforeEach
     public void setup() {
         taxProfile = new TaxProfile();
         employee = new Employee("0001", "Taylor Ray", 10000.00, new TaxProfile(), new InsuranceProfile());

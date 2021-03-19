@@ -53,10 +53,7 @@ cmake-build-*/
 
 # IntelliJ
 out/
-<<<<<<< HEAD
-=======
 target/
->>>>>>> main
 
 # mpeltonen/sbt-idea plugin
 .idea_modules/
@@ -84,6 +81,8 @@ fabric.properties
 # See https://github.com/joeblau/gitignore.io/issues/186 and https://github.com/joeblau/gitignore.io/issues/360
 
 .idea/
+../.idea/
+../*.iml
 
 # Reason: https://github.com/joeblau/gitignore.io/issues/186#issuecomment-249601023
 

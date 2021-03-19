@@ -1,4 +1,4 @@
-package com.dvt;
+package com.dvt.main;
 
 public class SalarySlipGenerator {
     private SalarySlipInterface salarySlip = null;

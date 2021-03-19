@@ -1,4 +1,4 @@
-package db;
+package com.dvt.db;
 
 import com.mongodb.BasicDBObject;
 import com.mongodb.MongoClient;
