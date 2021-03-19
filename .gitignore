@@ -53,7 +53,7 @@ cmake-build-*/
 
 # IntelliJ
 out/
-target/
+tray/target/
 
 # mpeltonen/sbt-idea plugin
 .idea_modules/
@@ -81,8 +81,7 @@ fabric.properties
 # See https://github.com/joeblau/gitignore.io/issues/186 and https://github.com/joeblau/gitignore.io/issues/360
 
 .idea/
-../.idea/
-../*.iml
+../grad-practice.iml
 
 # Reason: https://github.com/joeblau/gitignore.io/issues/186#issuecomment-249601023
 
