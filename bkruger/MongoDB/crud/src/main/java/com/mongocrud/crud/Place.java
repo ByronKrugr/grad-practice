@@ -12,17 +12,6 @@ public final class Place {
     private final Instant dateCreated;
     private final String googleMapsPlaceId;
 
-    public Place(PlaceBuilder builder){
-        this.name = builder.getName();
-        this.suburbName = builder.getSuburbName();
-        this.guessVisitCount = builder.getGuessVisitCount();
-        this.guaranteedVisitCount = builder.getGuaranteedVisitCount();
-        this.rating = builder.getRating();
-        this.amountRatings = builder.getAmountRatings();
-        this.dateCreated = builder.getDateCreated();
-        this.googleMapsPlaceId = builder.getGoogleMapsPlaceId();
-    }
-
     public Place(String name, String suburbName, String googleMapsPlaceId){
         this.name=name;
         this.suburbName=suburbName;

@@ -9,11 +9,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-public class MongoCRUDController {
+public class MongoCrudController {
 
     private PlaceRepository placeRepository;
 
-    public MongoCRUDController(){
+    public MongoCrudController(){
         placeRepository = new PlaceRepository();
         placeRepository.setUp();
     }
