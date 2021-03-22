@@ -12,4 +12,8 @@ public class ArticleService {
     public Article saveArticle(Article article){
         return articleRepository.insert(article);
     }
+
+    public Article getArticle(String id) {
+        return articleRepository.findById(id).get();
+    }
 }
