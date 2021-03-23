@@ -1,11 +1,8 @@
-<<<<<<< HEAD
 .DS_Store
 vincent/.DS_Store
 vincent/public/
 vincent/node_modules/mpath/bench.log
 
-=======
->>>>>>> main
 # Created by https://www.toptal.com/developers/gitignore/api/java,intellij+all
 # Edit at https://www.toptal.com/developers/gitignore?templates=java,intellij+all
 
