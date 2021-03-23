@@ -1,5 +1,3 @@
-package com.dvt.main;
-
 public class Employee {
     private String id = "";
     private String name = "";

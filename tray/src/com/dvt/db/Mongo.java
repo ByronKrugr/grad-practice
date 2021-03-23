@@ -1,5 +1,3 @@
-package com.dvt.db;
-
 import com.mongodb.BasicDBObject;
 import com.mongodb.MongoClient;
 import com.mongodb.client.MongoCollection;

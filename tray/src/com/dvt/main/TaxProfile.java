@@ -1,5 +1,3 @@
-package com.dvt.main;
-
 public class TaxProfile implements TaxProfileInterface {
     private final static double ANNUAL_TAX_LIMIT_LEVEL_1 = 11000.0;
     private final static double ANNUAL_TAX_LIMIT_LEVEL_2 = 43000.0;

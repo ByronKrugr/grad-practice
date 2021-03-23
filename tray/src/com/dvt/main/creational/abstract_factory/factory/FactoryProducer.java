@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 package com.dvt.creational.abstract_factory.factory;
+=======
+package creational.abstract_factory.factory;
+>>>>>>> main
 
 public class FactoryProducer {
     public static StampingEquipmentFactory getFactory(String factoryType) throws Exception{

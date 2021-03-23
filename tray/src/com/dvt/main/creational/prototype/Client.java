@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 package com.dvt.creational.prototype;
+=======
+package creational.prototype;
+>>>>>>> main
 
 import java.util.ArrayList;
 

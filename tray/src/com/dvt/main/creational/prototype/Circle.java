@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 package com.dvt.creational.prototype;
+=======
+package creational.prototype;
+>>>>>>> main
 
 public class Circle extends Shape{
     private int radius;

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 package com.dvt.creational.singleton;
+=======
+package creational.singleton;
+>>>>>>> main
 
 public class Client {
     public static void main(String[] args) {
