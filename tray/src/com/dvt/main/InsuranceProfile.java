@@ -1,5 +1,3 @@
-package com.dvt.main;
-
 public class InsuranceProfile implements InsuranceProfileInterface {
     private final static double ANNUAL_INSURANCE_STARTING_LIMIT_LEVEL_1 = 8060.0;
     private final static double ANNUAL_INSURANCE_STARTING_LIMIT_LEVEL_2 = 43000.0;

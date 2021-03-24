@@ -1,5 +1,3 @@
-import com.dvt.main.*;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
@@ -30,11 +28,6 @@ public class SalarySlipGeneratorTest {
         taxProfile = new TaxProfile();
         employee = new Employee("0001", "Taylor Ray", 10000.00, new TaxProfile(), new InsuranceProfile());
         salarySlip = new SalarySlipGenerator().generateSalarySlip(employee);
-    }
-
-    @Test
-    public void mainExists() throws Exception {
-        assertEquals("hello", Main.main(new String[]{"hello"}));
     }
 
     @Test

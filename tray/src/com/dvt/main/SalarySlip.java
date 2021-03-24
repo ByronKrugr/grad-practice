@@ -1,7 +1,3 @@
-package com.dvt.main;
-
-import static java.lang.Double.valueOf;
-
 public class SalarySlip implements SalarySlipInterface {
     private Employee employee = null;
     private double monthlyGrossSalary = 0.0;
