@@ -1,0 +1,32 @@
+body{
+    font-family: "Arial Black", Helvetica, sans-serif;
+    background-color: rgb(255, 249, 231);
+}
+
+p{
+    font-size: 15px;
+    text-align: justify;
+}
+
+#image {
+    height: 300px;
+    width: auto;
+    border-radius: 100%;
+    border: 3px solid orange;
+}
+
+.outsideContainer {
+    margin-top: 40px;
+}
+
+.horizontal-center{
+    margin-top: 10%;
+}
+
+.bold-text{
+    font-weight: bold;
+}
+
+.marginTop{
+    margin-top: 15px;
+}
