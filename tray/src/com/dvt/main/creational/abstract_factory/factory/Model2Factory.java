@@ -1,18 +1,9 @@
-<<<<<<< HEAD
-package com.dvt.creational.abstract_factory.factory;
-
-import com.dvt.creational.abstract_factory.Part;
-import com.dvt.creational.abstract_factory.doors.Model2Doors;
-import com.dvt.creational.abstract_factory.hood.Model2Hood;
-import com.dvt.creational.abstract_factory.wheels.Model2Wheels;
-=======
 package creational.abstract_factory.factory;
 
 import creational.abstract_factory.Part;
 import creational.abstract_factory.doors.Model2Doors;
 import creational.abstract_factory.hood.Model2Hood;
 import creational.abstract_factory.wheels.Model2Wheels;
->>>>>>> main
 
 public class Model2Factory implements StampingEquipmentFactory {
     @Override

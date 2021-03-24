@@ -1,14 +1,7 @@
-<<<<<<< HEAD
-package com.dvt.creational.abstract_factory;
-
-import com.dvt.creational.abstract_factory.factory.FactoryProducer;
-import com.dvt.creational.abstract_factory.factory.StampingEquipmentFactory;
-=======
 package creational.abstract_factory;
 
 import creational.abstract_factory.factory.FactoryProducer;
 import creational.abstract_factory.factory.StampingEquipmentFactory;
->>>>>>> main
 
 public class Client {
     private static StampingEquipmentFactory factory;

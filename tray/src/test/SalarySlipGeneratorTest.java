@@ -31,11 +31,6 @@ public class SalarySlipGeneratorTest {
     }
 
     @Test
-    public void mainExists() throws Exception {
-        assertEquals("hello", Main.main(new String[]{"hello"}));
-    }
-
-    @Test
     public void createDummySalarySlip() throws Exception {
         SalarySlipInterface salarySlip = new SalarySlip();
         assertNotNull(salarySlip);

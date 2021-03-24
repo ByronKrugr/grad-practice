@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-package com.dvt.creational.prototype;
-=======
 package creational.prototype;
->>>>>>> main
 
 public class Rectangle extends Shape{
     private int width;

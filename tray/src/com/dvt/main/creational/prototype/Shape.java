@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-package com.dvt.creational.prototype;
-=======
 package creational.prototype;
->>>>>>> main
 
 public abstract class Shape {
     protected String color;
