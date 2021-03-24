@@ -1,4 +1,4 @@
-package structural;
+package structural.decorator;
 
 public class JacketDecorator extends BaseDecorator{
 
