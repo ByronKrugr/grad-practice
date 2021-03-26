@@ -8,7 +8,6 @@ import salary_slip.*;
 public class SalarySlipGeneratorTest {
     private SalarySlipInterface salarySlip = null;
     private Employee employee = null;
-    private TaxProfileInterface taxProfile = null;
 
     //UTILITIES
     private void assertName(String expected) {
@@ -25,8 +24,7 @@ public class SalarySlipGeneratorTest {
 
     @BeforeEach
     public void setup() {
-        taxProfile = new TaxProfile();
-        employee = new Employee("0001", "Taylor Ray", 10000.00, new TaxProfile(), new InsuranceProfile());
+        employee = new Employee("0001", "Taylor Ray", 10000.00);
         salarySlip = new SalarySlipGenerator().generateSalarySlip(employee);
     }
 

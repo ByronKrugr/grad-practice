@@ -20,7 +20,7 @@ public class InsuranceProfileTest {
 
     @BeforeEach
     public void setup() {
-        employee = new Employee("11", "Taylor", 8060.0, new TaxProfile(), new InsuranceProfile());
+        employee = new Employee("11", "Taylor", 8060.0);
         salarySlip = new SalarySlipGenerator().generateSalarySlip(employee);
     }
 
@@ -37,7 +37,7 @@ public class InsuranceProfileTest {
 
     @Test
     public void calculateInsuranceContributionWhenApplicable() throws Exception {
-        employee = new Employee("11", "Taylor", 9060.0, new TaxProfile(), new InsuranceProfile());
+        employee = new Employee("11", "Taylor", 9060.0);
         salarySlip = new SalarySlipGenerator().generateSalarySlip(employee);
         assertInsuranceContribution(10.00);
     }
@@ -49,7 +49,7 @@ public class InsuranceProfileTest {
 
     @Test
     public void calculateInsuranceRateWhenApplicable() throws Exception {
-        employee = new Employee("11", "Taylor", 9060.0, new TaxProfile(), new InsuranceProfile());
+        employee = new Employee("11", "Taylor", 9060.0);
         salarySlip = new SalarySlipGenerator().generateSalarySlip(employee);
         assertInsuranceRate(0.12);
     }

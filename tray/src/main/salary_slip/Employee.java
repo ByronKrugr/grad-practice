@@ -1,24 +1,21 @@
 package salary_slip;
 
 public class Employee {
-    private String id = "";
-    private String name = "";
-    private double annualGrossSalary = 0.0;
-    private TaxProfileInterface taxProfile = null;
-    private InsuranceProfileInterface insuranceProfile = null;
+    private String id;
+    private String name;
+    private double annualGrossSalary;
+    private TaxProfileInterface taxProfile = new TaxProfile();
+    private InsuranceProfileInterface insuranceProfile = new InsuranceProfile();
 
     public Employee() {
     }
 
-    public Employee(String id, String name, double annualGrossSalary, TaxProfileInterface taxProfile, InsuranceProfileInterface insuranceProfile) {
+    public Employee(String id, String name, double annualGrossSalary) {
         this.id = id;
         this.name = name;
         this.annualGrossSalary = annualGrossSalary;
 
-        this.taxProfile = taxProfile;
         this.taxProfile.calculateTaxAmountDue(this.annualGrossSalary);
-
-        this.insuranceProfile = insuranceProfile;
         this.insuranceProfile.calculateInsuranceContribution(this.annualGrossSalary);
     }
 

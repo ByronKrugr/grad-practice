@@ -42,7 +42,7 @@ public class IntegrationTests {
 
     @Test //Iteration 1
     public void calculateMonthlyGrossSalary() throws Exception {
-        employee = new Employee("12345", "John J Doe", 5000.00, new TaxProfile(), new InsuranceProfile());
+        employee = new Employee("12345", "John J Doe", 5000.00);
         salarySlip = new SalarySlipGenerator().generateSalarySlip(employee);
 
         assertId("12345");
@@ -52,7 +52,7 @@ public class IntegrationTests {
 
     @Test //Iteration 2
     public void calculateInsuranceContributionWhenApplicable() throws Exception {
-        employee = new Employee("12345", "John J Doe", 9060.00, new TaxProfile(), new InsuranceProfile());
+        employee = new Employee("12345", "John J Doe", 9060.00);
         salarySlip = new SalarySlipGenerator().generateSalarySlip(employee);
 
         assertId("12345");
@@ -64,7 +64,7 @@ public class IntegrationTests {
 
     @Test //Iteration 3
     public void checkTaxPayableWhenApplicable() throws Exception {
-        employee = new Employee("12345", "John J Doe", 12000.00, new TaxProfile(), new InsuranceProfile());
+        employee = new Employee("12345", "John J Doe", 12000.00);
         salarySlip = new SalarySlipGenerator().generateSalarySlip(employee);
 
         assertId("12345");
@@ -78,7 +78,7 @@ public class IntegrationTests {
 
     @Test //Iteration 4
     public void calculateLevel2GrossSalary() throws Exception {
-        employee = new Employee("12345", "John J Doe", 45000.00, new TaxProfile(), new InsuranceProfile());
+        employee = new Employee("12345", "John J Doe", 45000.00);
         salarySlip = new SalarySlipGenerator().generateSalarySlip(employee);
 
         assertId("12345");
@@ -92,7 +92,7 @@ public class IntegrationTests {
 
     @Test //Iteration 5 #1
     public void calculateLevel3GrossSalary1() throws Exception {
-        employee = new Employee("12345", "John J Doe", 101000.00, new TaxProfile(), new InsuranceProfile());
+        employee = new Employee("12345", "John J Doe", 101000.00);
         salarySlip = new SalarySlipGenerator().generateSalarySlip(employee);
 
         assertId("12345");
@@ -106,7 +106,7 @@ public class IntegrationTests {
 
     @Test //Iteration 5 #2
     public void calculateLevel3GrossSalary2() throws Exception {
-        employee = new Employee("12345", "John J Doe", 111000.00, new TaxProfile(), new InsuranceProfile());
+        employee = new Employee("12345", "John J Doe", 111000.00);
         salarySlip = new SalarySlipGenerator().generateSalarySlip(employee);
 
         assertId("12345");
@@ -120,7 +120,7 @@ public class IntegrationTests {
 
     @Test //Iteration 5 #3
     public void calculateLevel3GrossSalary3() throws Exception {
-        employee = new Employee("12345", "John J Doe", 122000.00, new TaxProfile(), new InsuranceProfile());
+        employee = new Employee("12345", "John J Doe", 122000.00);
         salarySlip = new SalarySlipGenerator().generateSalarySlip(employee);
 
         assertId("12345");
@@ -134,7 +134,7 @@ public class IntegrationTests {
 
     @Test //Iteration 5 #4
     public void calculateLevel3GrossSalary4() throws Exception {
-        employee = new Employee("12345", "John J Doe", 150000.00, new TaxProfile(), new InsuranceProfile());
+        employee = new Employee("12345", "John J Doe", 150000.00);
         salarySlip = new SalarySlipGenerator().generateSalarySlip(employee);
 
         assertId("12345");
@@ -148,7 +148,7 @@ public class IntegrationTests {
 
     @Test //Iteration 6
     public void calculateLevel4GrossSalary() throws Exception {
-        employee = new Employee("12345", "John J Doe", 160000.00, new TaxProfile(), new InsuranceProfile());
+        employee = new Employee("12345", "John J Doe", 160000.00);
         salarySlip = new SalarySlipGenerator().generateSalarySlip(employee);
 
         assertId("12345");

@@ -8,7 +8,6 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 public class TaxProfileTest {
     private SalarySlipInterface salarySlip = null;
     private Employee employee = null;
-    private TaxProfileInterface taxProfile = null;
 
     // UTILITIES
     private void assertTaxPayable(double expected) {
@@ -25,8 +24,7 @@ public class TaxProfileTest {
 
     @BeforeEach
     public void setup() throws Exception {
-        taxProfile = new TaxProfile();
-        employee = new Employee("111", "Taylor", 12000.00, taxProfile, new InsuranceProfile());
+        employee = new Employee("111", "Taylor", 12000.00);
         salarySlip = new SalarySlipGenerator().generateSalarySlip(employee);
 
     }
@@ -49,7 +47,7 @@ public class TaxProfileTest {
 
     @Test
     public void calculateTaxPayableWhenNotApplicable() throws Exception {
-        employee = new Employee("12345", "John J Doe", 11000.00, new TaxProfile(), new InsuranceProfile());
+        employee = new Employee("12345", "John J Doe", 11000.00);
         salarySlip = new SalarySlipGenerator().generateSalarySlip(employee);
         assertTaxPayable(0.0);
     }

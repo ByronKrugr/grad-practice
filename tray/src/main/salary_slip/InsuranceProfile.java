@@ -5,10 +5,10 @@ public class InsuranceProfile implements InsuranceProfileInterface {
     private final static double ANNUAL_INSURANCE_STARTING_LIMIT_LEVEL_2 = 43000.0;
     private final static double INSURANCE_RATE_LEVEL_1 = 0.12;
     private final static double INSURANCE_RATE_LEVEL_2 = 0.02;
-    private double annualInsuranceContribution = 0.0;
-    private double monthlyInsuranceContribution = 0.0;
+    private double annualInsuranceContribution;
+    private double monthlyInsuranceContribution;
 
-    private double annualGrossSalary = 0.0;
+    private double annualGrossSalary;
 
     public void calculateInsuranceContribution(double annualGrossSalary) {
         this.annualGrossSalary = annualGrossSalary;

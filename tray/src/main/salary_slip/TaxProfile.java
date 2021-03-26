@@ -8,14 +8,14 @@ public class TaxProfile implements TaxProfileInterface {
     private final static double TAX_RATE_LEVEL_1 = 0.2;
     private final static double TAX_RATE_LEVEL_2 = 0.4;
     private final static double TAX_RATE_LEVEL_3 = 0.45;
-    private double annualTaxableIncome = 0.0;
-    private double monthlyTaxableIncome = 0.0;
-    private double annualTaxPayable = 0.0;
-    private double monthlyTaxPayable = 0.0;
-    private double monthlyTaxFreeAllowance = 0.0;
+    private double annualTaxableIncome;
+    private double monthlyTaxableIncome;
+    private double annualTaxPayable;
+    private double monthlyTaxPayable;
+    private double monthlyTaxFreeAllowance;
     private double annualTaxFreeAllowance = ANNUAL_TAX_LIMIT_LEVEL_1;
 
-    private double annualGrossSalary = 0.0;
+    private double annualGrossSalary;
 
     public void calculateTaxAmountDue(double annualGrossSalary) {
         this.annualGrossSalary = annualGrossSalary;
