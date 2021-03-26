@@ -33,12 +33,6 @@ public class UseCaseFactoryImplTest {
     }
 
     @Test
-    public void canCreateReadArticleUseCaseDerivativeOfUseCase(){
-        ReadArticleUseCase readArticleUseCase = new ReadArticleUseCase();
-        assertThat(readArticleUseCase).isInstanceOf(UseCase.class);
-    }
-
-    @Test
     public void makeUseCaseMethodReturnsReadArticleUseCaseWhenReadArticleString(){
         UseCase readArticleUseCase = this.useCaseFactoryImpl.makeUseCase("READ_ARTICLE");
         assertThat(readArticleUseCase).isInstanceOf(ReadArticleUseCase.class);
