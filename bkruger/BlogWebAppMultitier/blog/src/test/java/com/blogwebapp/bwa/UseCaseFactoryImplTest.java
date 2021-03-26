@@ -1,6 +1,7 @@
 package com.blogwebapp.bwa;
 
 import com.blogwebapp.bwa.useCases.*;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -9,6 +10,41 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @SpringBootTest
 public class UseCaseFactoryImplTest {
+
+    private UseCaseFactoryImpl useCaseFactoryImpl;
+
+    @BeforeEach
+    public void setup(){
+        this.useCaseFactoryImpl = new UseCaseFactoryImpl();
+    }
+
+    @Test
+    public void makeUseCaseMethodThrowsExceptionWhenInvalidString(){
+        Exception e = assertThrows(IllegalArgumentException.class, () -> {
+            useCaseFactoryImpl.makeUseCase("INVALID");
+        });
+        assertThat(e.getMessage()).isEqualTo("Invalid use case specified");
+    }
+
+    @Test
+    public void makeUseCaseMethodReturnsSaveArticleUseCaseWhenSaveArticleString(){
+        UseCase saveArticleUseCase = this.useCaseFactoryImpl.makeUseCase("SAVE_ARTICLE");
+        assertThat(saveArticleUseCase).isInstanceOf(SaveArticleUseCase.class);
+    }
+
+    @Test
+    public void canCreateReadArticleUseCaseDerivativeOfUseCase(){
+        ReadArticleUseCase readArticleUseCase = new ReadArticleUseCase();
+        assertThat(readArticleUseCase).isInstanceOf(UseCase.class);
+    }
+
+    @Test
+    public void makeUseCaseMethodReturnsReadArticleUseCaseWhenReadArticleString(){
+        UseCase readArticleUseCase = this.useCaseFactoryImpl.makeUseCase("READ_ARTICLE");
+        assertThat(readArticleUseCase).isInstanceOf(ReadArticleUseCase.class);
+    }
+
+}
 
 //    commenting out instead of removing for demonstration and learning purposes.
 //    @Test
@@ -98,12 +134,6 @@ public class UseCaseFactoryImplTest {
 //        UseCaseFactory useCaseFactory;
 //    }
 
-    @Test
-    public void canCreateUseCaseFactoryImplDerivateOfUseCaseFactory(){
-        UseCaseFactoryImpl useCaseFactoryImpl = new UseCaseFactoryImpl();
-        assertThat(useCaseFactoryImpl).isInstanceOf(UseCaseFactory.class);
-    }
-
 //    commenting out instead of removing for demonstration and learning purposes.
 //    @Test
 //    public void canCallMakeUseCaseMethodOfUseCaseFactoryImpl(){
@@ -111,20 +141,4 @@ public class UseCaseFactoryImplTest {
 //        useCaseFactoryImpl.makeUseCase("");
 //    }
 
-    @Test
-    public void makeUseCaseMethodThrowsExceptionWhenInvalidString(){
-        UseCaseFactoryImpl useCaseFactoryImpl = new UseCaseFactoryImpl();
-        Exception e = assertThrows(IllegalArgumentException.class, () -> {
-                useCaseFactoryImpl.makeUseCase("INVALID");
-        });
-        assertThat(e.getMessage()).isEqualTo("Invalid use case specified");
-    }
 
-    @Test
-    public void makeUseCaseMethodUseCaseReturnsSaveArticleUseCaseWhenSaveArticleString(){
-        UseCaseFactoryImpl useCaseFactoryImpl = new UseCaseFactoryImpl();
-        SaveArticleUseCase saveArticleUseCase = useCaseFactoryImpl.makeUseCase("SAVE_ARTICLE");
-        assertThat(saveArticleUseCase).isInstanceOf(SaveArticleUseCase.class);
-    }
-
-}
