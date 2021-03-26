@@ -27,12 +27,6 @@ public class UseCaseFactoryImplTest {
     }
 
     @Test
-    public void makeUseCaseMethodReturnsSaveArticleUseCaseWhenSaveArticleString(){
-        UseCase saveArticleUseCase = this.useCaseFactoryImpl.makeUseCase("SAVE_ARTICLE");
-        assertThat(saveArticleUseCase).isInstanceOf(SaveArticleUseCase.class);
-    }
-
-    @Test
     public void canCreateReadArticleUseCaseDerivativeOfUseCase(){
         ReadArticleUseCase readArticleUseCase = new ReadArticleUseCase();
         assertThat(readArticleUseCase).isInstanceOf(UseCase.class);
