@@ -1,56 +1,60 @@
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.mockito.Mockito.when;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.junit.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
 import salary_slip.*;
 
 public class InsuranceProfileTest {
-    Employee employee = null;
-    SalarySlipInterface salarySlip = null;
+    InsuranceProfileInterface insuranceProfile;
 
     // UTILITIES
     private void assertInsuranceContribution(double expected) {
-        assertEquals(expected, salarySlip.getEmployee().getInsuranceProfile().getMonthlyInsuranceContribution(), 0.00);
+        assertEquals(expected, insuranceProfile.getMonthlyInsuranceContribution(), 0.00);
     }
 
     private void assertInsuranceRate(double expected) {
-        assertEquals(expected, salarySlip.getEmployee().getInsuranceProfile().getInsuranceRate(), 0.0);
+        assertEquals(expected, insuranceProfile.getInsuranceRate(), 0.0);
     }
 
     @BeforeEach
-    public void setup() {
-        employee = new Employee("11", "Taylor", 8060.0);
-        salarySlip = new SalarySlipGenerator().generateSalarySlip(employee);
+    public void setup() throws Exception {
+        insuranceProfile = new InsuranceProfile();
     }
 
     @Test
     public void insuranceProfileCreated() throws Exception {
-        InsuranceProfileInterface insuranceProfile = new InsuranceProfile();
         assertNotNull(insuranceProfile);
     }
 
     @Test
     public void calculateInsuranceContributionWhenNotApplicable() throws Exception {
+        insuranceProfile.calculateInsuranceContribution(8060.0);
         assertInsuranceContribution(0.0);
     }
 
     @Test
     public void calculateInsuranceContributionWhenApplicable() throws Exception {
-        employee = new Employee("11", "Taylor", 9060.0);
-        salarySlip = new SalarySlipGenerator().generateSalarySlip(employee);
+        insuranceProfile.calculateInsuranceContribution(9060.0);
         assertInsuranceContribution(10.00);
     }
 
     @Test
     public void calculateInsuranceRateWhenNotApplicable() throws Exception {
+        insuranceProfile.calculateInsuranceContribution(8060.0);
         assertInsuranceRate(0.0);
     }
 
     @Test
     public void calculateInsuranceRateWhenApplicable() throws Exception {
-        employee = new Employee("11", "Taylor", 9060.0);
-        salarySlip = new SalarySlipGenerator().generateSalarySlip(employee);
+        insuranceProfile.calculateInsuranceContribution(9060.0);
+
         assertInsuranceRate(0.12);
     }
 }

@@ -29,7 +29,7 @@ public class IntegrationTests {
     }
 
     private void assertGrossSalary(double expected) {
-        assertEquals(expected, salarySlip.getMonthlyGrossSalary(), 0.00);
+        assertEquals(expected, employee.getMonthlyGrossSalary(), 0.00);
     }
 
     private void assertInsuranceContribution(double expected) {
@@ -44,9 +44,6 @@ public class IntegrationTests {
     public void calculateMonthlyGrossSalary() throws Exception {
         employee = new Employee("12345", "John J Doe", 5000.00);
         salarySlip = new SalarySlipGenerator().generateSalarySlip(employee);
-
-        assertId("12345");
-        assertName("John J Doe");
         assertGrossSalary(416.67);
     }
 

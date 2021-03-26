@@ -21,6 +21,24 @@ public class InsuranceProfile implements InsuranceProfileInterface {
             convertInsuranceToMonthly();
     }
 
+    private void convertInsuranceToMonthly() {
+        monthlyInsuranceContribution = annualInsuranceContribution / 12.0;
+    }
+
+    private void calculateLevel1InsuranceContribution() {
+        annualInsuranceContribution += (annualGrossSalary - ANNUAL_INSURANCE_STARTING_LIMIT_LEVEL_1) * INSURANCE_RATE_LEVEL_1;
+        monthlyInsuranceContribution += annualInsuranceContribution / 12.0;
+    }
+
+    private void calculateLevel2InsuranceContribution() {
+        annualInsuranceContribution += (annualGrossSalary - ANNUAL_INSURANCE_STARTING_LIMIT_LEVEL_2) * INSURANCE_RATE_LEVEL_2;
+        annualInsuranceContribution += (ANNUAL_INSURANCE_STARTING_LIMIT_LEVEL_2 - ANNUAL_INSURANCE_STARTING_LIMIT_LEVEL_1) * INSURANCE_RATE_LEVEL_1;
+    }
+
+    private double format(double preFormat) {
+        return FormatDecimals.calculate(preFormat);
+    }
+
     public double getMonthlyInsuranceContribution() {
         return format(monthlyInsuranceContribution);
     }
@@ -32,22 +50,5 @@ public class InsuranceProfile implements InsuranceProfileInterface {
             return format(INSURANCE_RATE_LEVEL_1);
 
         return 0.0;
-    }
-
-    private double format(double preFormat) {
-        return FormatDecimals.calculate(preFormat);
-    }
-
-    private void convertInsuranceToMonthly() {
-        monthlyInsuranceContribution = annualInsuranceContribution / 12.0;
-    }
-
-    private void calculateLevel1InsuranceContribution() {
-        annualInsuranceContribution += (annualGrossSalary - ANNUAL_INSURANCE_STARTING_LIMIT_LEVEL_1) * INSURANCE_RATE_LEVEL_1;
-    }
-
-    private void calculateLevel2InsuranceContribution() {
-        annualInsuranceContribution += (annualGrossSalary - ANNUAL_INSURANCE_STARTING_LIMIT_LEVEL_2) * INSURANCE_RATE_LEVEL_2;
-        annualInsuranceContribution += (ANNUAL_INSURANCE_STARTING_LIMIT_LEVEL_2 - ANNUAL_INSURANCE_STARTING_LIMIT_LEVEL_1) * INSURANCE_RATE_LEVEL_1;
     }
 }

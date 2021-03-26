@@ -3,75 +3,30 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 import salary_slip.*;
 
+@ExtendWith(MockitoExtension.class)
 public class SalarySlipGeneratorTest {
-    private SalarySlipInterface salarySlip = null;
-    private Employee employee = null;
-
-    //UTILITIES
-    private void assertName(String expected) {
-        assertEquals(expected, salarySlip.getEmployee().getName());
-    }
-
-    private void assertId(String expected) {
-        assertEquals(expected, salarySlip.getEmployee().getId());
-    }
-
-    private void assertGrossSalary(double expected) {
-        assertEquals(expected, salarySlip.getMonthlyGrossSalary(), 0.00);
-    }
+    @Mock
+    private Employee employee;
+    private SalarySlipGenerator salarySlipGenerator;
 
     @BeforeEach
     public void setup() {
-        employee = new Employee("0001", "Taylor Ray", 10000.00);
-        salarySlip = new SalarySlipGenerator().generateSalarySlip(employee);
-    }
-
-    @Test
-    public void createDummySalarySlip() throws Exception {
-        SalarySlipInterface salarySlip = new SalarySlip();
-        assertNotNull(salarySlip);
+        salarySlipGenerator = new SalarySlipGenerator();
     }
 
     @Test
     public void createSalarySlipGenerator() throws Exception {
-        SalarySlipGenerator salarySlipGenerator = new SalarySlipGenerator();
         assertNotNull(salarySlipGenerator);
     }
 
     @Test
-    public void createDummyEmployee() throws Exception {
-        Employee employee = new Employee();
-        assertNotNull(employee);
-    }
-
-    @Test
-    public void employeeDetailsAreSetWithSetup() throws Exception {
-        assertId("0001");
-        assertName("Taylor Ray");
-        assertGrossSalary(833.33);
-    }
-
-    @Test
-    public void createdSalarySlipGeneratorWithNoData() throws Exception {
-        SalarySlipGenerator salarySlipGenerator = new SalarySlipGenerator();
-        assertNotNull(salarySlipGenerator);
-    }
-
-    @Test
-    public void createdSalarySlipWithSalarySlipGenerator() throws Exception {
+    public void salarySlipCreated() throws Exception {
+        SalarySlipInterface salarySlip = salarySlipGenerator.generateSalarySlip(employee);
         assertNotNull(salarySlip);
-    }
-
-    @Test
-    public void createSalarySlipWithNoData() throws Exception {
-        SalarySlipInterface salarySlip = new SalarySlip();
-        assertNotNull(salarySlip);
-    }
-
-    @Test
-    public void salarySlipReceivesEmployee() throws Exception {
-        assertEquals(employee, salarySlip.getEmployee());
     }
 }

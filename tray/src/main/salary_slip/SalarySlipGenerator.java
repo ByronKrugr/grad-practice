@@ -1,7 +1,7 @@
 package salary_slip;
 
 public class SalarySlipGenerator {
-    private SalarySlipInterface salarySlip = null;
+    private SalarySlipInterface salarySlip;
 
     public SalarySlipGenerator(){
     }
