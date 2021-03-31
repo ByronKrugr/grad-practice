@@ -38,4 +38,8 @@ public class EmailValidatorUnitTest {
         assertEquals(getValidateResult("abcdefghijk12345"), false);
     }
 
+    @Test
+    public void validateReturnsFalseWhenJustAtSymbol(){
+        assertEquals(getValidateResult("@"), false);
+    }
 }
