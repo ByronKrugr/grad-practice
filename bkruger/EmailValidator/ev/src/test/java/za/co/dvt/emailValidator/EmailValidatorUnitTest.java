@@ -1,18 +1,19 @@
 package za.co.dvt.emailValidator;
 
+import org.junit.Before;
 import org.junit.Test;
 import za.co.dvt.validators.EmailValidator;
 
 public class EmailValidatorUnitTest {
+    private EmailValidator emailValidator;
 
-    @Test
-    public void canCreateEmailValidator(){
-        EmailValidator emailValidator = new EmailValidator();
+    @Before
+    public void setUp(){
+        this.emailValidator = new EmailValidator();
     }
 
     @Test
     public void canCallValidate(){
-        EmailValidator emailValidator = new EmailValidator();
-        boolean isValid = emailValidator.validate("");
+        boolean isValid = this.emailValidator.validate("");
     }
 }
