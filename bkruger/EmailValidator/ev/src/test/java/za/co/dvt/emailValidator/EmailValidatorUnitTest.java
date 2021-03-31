@@ -19,4 +19,9 @@ public class EmailValidatorUnitTest {
         boolean isValid = this.emailValidator.validate(null);
         assertEquals(isValid, false);
     }
+
+    @Test
+    public void validateReturnsFalseWhenEmptyEmail(){
+        boolean isValid = this.emailValidator.validate("");
+    }
 }
