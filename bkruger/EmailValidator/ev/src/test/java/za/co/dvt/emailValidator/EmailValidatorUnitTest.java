@@ -50,11 +50,16 @@ public class EmailValidatorUnitTest {
 
     @Test
     public void validateReturnsFalseWhenNothingBeforeAtSymbol(){
-        assertEquals(getValidateResult("@abc"), false);
+        assertEquals(getValidateResult("@abc123"), false);
     }
 
     @Test
     public void validateReturnsFalseWhenNothingAfterAtSymbol(){
-        assertEquals(getValidateResult("abc@"), false);
+        assertEquals(getValidateResult("abc123@"), false);
+    }
+
+    @Test
+    public void validateReturnsFalseWhenNoPeriod(){
+        assertEquals(getValidateResult("abc123@abc123"), false);
     }
 }
