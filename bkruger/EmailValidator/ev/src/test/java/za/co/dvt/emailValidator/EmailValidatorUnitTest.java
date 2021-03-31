@@ -52,4 +52,9 @@ public class EmailValidatorUnitTest {
     public void validateReturnsFalseWhenNothingBeforeAtSymbol(){
         assertEquals(getValidateResult("@abc"), false);
     }
+
+    @Test
+    public void validateReturnsFalseWhenNothingAfterAtSymbol(){
+        assertEquals(getValidateResult("abc@"), false);
+    }
 }
