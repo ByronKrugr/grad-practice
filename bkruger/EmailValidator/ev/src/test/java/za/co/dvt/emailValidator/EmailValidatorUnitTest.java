@@ -64,7 +64,8 @@ public class EmailValidatorUnitTest {
     }
 
     @Test
-    public void validateReturnsFalseWhenNothingAfterPeriod(){
+    public void validateReturnsFalseWhenNothingAfterFirstPeriod(){
         assertEquals(getValidateResult("abc123@abc123."), false);
     }
+
 }
