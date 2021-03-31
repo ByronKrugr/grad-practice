@@ -33,4 +33,9 @@ public class EmailValidatorUnitTest {
         assertEquals(getValidateResult("a"), false);
     }
 
+    @Test
+    public void validateReturnsFalseWhenMultiCharStringAndNoEmailSymbols(){
+        assertEquals(getValidateResult("abcdefghijk12345"), false);
+    }
+
 }
