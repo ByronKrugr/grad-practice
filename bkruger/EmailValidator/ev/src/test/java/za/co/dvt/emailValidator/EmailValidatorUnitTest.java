@@ -47,4 +47,9 @@ public class EmailValidatorUnitTest {
     public void validateReturnsFalseWhenJustPeriod(){
         assertEquals(getValidateResult("."), false);
     }
+
+    @Test
+    public void validateReturnsFalseWhenNothingBeforeAtSymbol(){
+        assertEquals(getValidateResult("@abc"), false);
+    }
 }
