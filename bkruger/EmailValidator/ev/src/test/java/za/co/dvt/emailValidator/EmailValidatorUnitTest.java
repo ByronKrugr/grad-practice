@@ -14,14 +14,18 @@ public class EmailValidatorUnitTest {
         this.emailValidator = new EmailValidator();
     }
 
+    public boolean getValidateResult(String email){
+        return this.emailValidator.validate(email);
+    }
+
     @Test
     public void validateReturnsFalseWhenNullEmail(){
-        boolean isValid = this.emailValidator.validate(null);
-        assertEquals(isValid, false);
+        assertEquals(getValidateResult(null), false);
     }
 
     @Test
     public void validateReturnsFalseWhenEmptyEmail(){
-        boolean isValid = this.emailValidator.validate("");
+        assertEquals(getValidateResult(""), false);
     }
+
 }
