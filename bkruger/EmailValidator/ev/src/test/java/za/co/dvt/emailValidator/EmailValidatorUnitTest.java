@@ -28,4 +28,9 @@ public class EmailValidatorUnitTest {
         assertEquals(getValidateResult(""), false);
     }
 
+    @Test
+    public void validateReturnsFalseWhenSingleChar(){
+        assertEquals(getValidateResult("a"), false);
+    }
+
 }
