@@ -15,11 +15,6 @@ public class EmailValidatorUnitTest {
     }
 
     @Test
-    public void canCallValidate(){
-        boolean isValid = this.emailValidator.validate("");
-    }
-
-    @Test
     public void validateReturnsFalseWhenNullEmail(){
         boolean isValid = this.emailValidator.validate(null);
         assertEquals(isValid, false);
