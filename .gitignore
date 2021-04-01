@@ -1,6 +1,7 @@
 .DS_Store
 vincent/.DS_Store
 vincent/node_modules/
+sonar-project.properties
 
 # Created by https://www.toptal.com/developers/gitignore/api/java,intellij+all
 # Edit at https://www.toptal.com/developers/gitignore?templates=java,intellij+all

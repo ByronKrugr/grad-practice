@@ -3,11 +3,9 @@ package patterns.creational.abstract_factory;
 import patterns.creational.abstract_factory.factory.FactoryProducer;
 import patterns.creational.abstract_factory.factory.StampingEquipmentFactory;
 
-public class Client {
-  private static StampingEquipmentFactory factory;
-
+public class Application {
   public static void main(String[] args) throws Exception {
-    factory = FactoryProducer.getFactory("MODEL1");
+    StampingEquipmentFactory factory = FactoryProducer.getFactory("MODEL1");
     Part wheels = factory.stampPart("WHEELS");
     wheels.stamp();
 

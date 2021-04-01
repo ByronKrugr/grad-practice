@@ -3,10 +3,10 @@ package patterns.creational.prototype;
 public abstract class Shape {
   protected String color;
 
-  public Shape() {
+  protected Shape() {
   }
 
-  public Shape(Shape source) {
+  protected Shape(Shape source) {
     this.color = source.color;
   }
 
