@@ -4,19 +4,19 @@ import java.awt.*;
 import java.util.List;
 
 public class UserDomainObject {
-    private String email;
-    private String password;
-    private boolean isActivated;
-    private float reputation;
-    private int visitCount;
-    private long currentPlace;
-    private String phone;
-    private Point location;
-    private List<Long> visits;
+  private String email;
+  private String password;
+  private boolean isActivated;
+  private float reputation;
+  private int visitCount;
+  private long currentPlace;
+  private String phone;
+  private Point location;
+  private List<Long> visits;
 
-    public UserDomainObject(UserDomainObjectBuilder builder){
-        this.email = builder.getEmail();
-        this.password = builder.getPassword();
+  public UserDomainObject(UserDomainObjectBuilder builder) {
+    this.email = builder.getEmail();
+    this.password = builder.getPassword();
 //        this.isActivated = builder.isActivated;
 //        this.reputation = builder.reputation;
 //        this.visitCount = builder.visitCount;
@@ -24,5 +24,5 @@ public class UserDomainObject {
 //        this.phone = builder.phone;
 //        this.location = builder.location;
 //        this.visits = builder.visits;
-    }
+  }
 }

@@ -10,8 +10,8 @@ import java.util.HashMap;
 @SpringBootApplication
 public class CrudApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(CrudApplication.class, args);
-	}
+  public static void main(String[] args) {
+    SpringApplication.run(CrudApplication.class, args);
+  }
 
 }

@@ -1,33 +1,28 @@
 package salary_slip;
 
 public class SalarySlip implements SalarySlipInterface {
-    private Employee employee;
+  private Employee employee;
 
-    public SalarySlip(Employee employee) {
-        this.employee = employee;
-    }
+  public SalarySlip(Employee employee) {
+    this.employee = employee;
+  }
 
-    @Override
-    public Employee getEmployee() {
-        return employee;
-    }
+  @Override
+  public Employee getEmployee() {
+    return employee;
+  }
 
-    @Override
-    public String getEmployeeDetails() {
-        return "Employee details are as follows: " +
-                "\nId: " + employee.getId() +
-                "\nName: " + employee.getName() +
-                "\nAnnual Gross Salary: R" + employee.getAnnualGrossSalary() +
-                "\nGross Salary: R" + employee.getMonthlyGrossSalary() +
-                "\nInsurance Rate: " + employee.getInsuranceProfile().getInsuranceRate() +
-                "\nInsurance Contribution: R" + employee.getInsuranceProfile().getMonthlyInsuranceContribution() +
-                "\nTaxable Income: R" + employee.getTaxProfile().getMonthlyTaxableIncome() +
-                "\nTax Free Allowance: R" + employee.getTaxProfile().getMonthlyTaxFreeAllowance() +
-                "\nTax Payable: R" + employee.getTaxProfile().getMonthlyTaxPayable();
-    }
-
-    private double format(double preFormat) {
-        return FormatDecimals.calculate(preFormat);
-    }
-
+  @Override
+  public String getEmployeeDetails() {
+    return "Employee details are as follows: " +
+            "\nId: " + employee.getId() +
+            "\nName: " + employee.getName() +
+            "\nAnnual Gross Salary: R" + employee.getAnnualGrossSalary() +
+            "\nGross Salary: R" + employee.getMonthlyGrossSalary() +
+            "\nInsurance Rate: " + employee.getInsuranceProfile().getInsuranceRate() +
+            "\nInsurance Contribution: R" + employee.getInsuranceProfile().getMonthlyInsuranceContribution() +
+            "\nTaxable Income: R" + employee.getTaxProfile().getMonthlyTaxableIncome() +
+            "\nTax Free Allowance: R" + employee.getTaxProfile().getMonthlyTaxFreeAllowance() +
+            "\nTax Payable: R" + employee.getTaxProfile().getMonthlyTaxPayable();
+  }
 }

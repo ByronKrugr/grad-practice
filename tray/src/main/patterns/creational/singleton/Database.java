@@ -1,14 +1,14 @@
 package patterns.creational.singleton;
 
 public class Database {
-    private static Database db = null;
+  private static Database db = null;
 
-    private Database() {
-    }
+  private Database() {
+  }
 
-    public static Database getInstance(){
-        if (db == null)
-            db = new Database();
-        return db;
-    }
+  public static Database getInstance() {
+    if (db == null)
+      db = new Database();
+    return db;
+  }
 }

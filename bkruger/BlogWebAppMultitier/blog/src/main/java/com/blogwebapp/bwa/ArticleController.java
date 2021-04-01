@@ -13,18 +13,18 @@ import org.springframework.web.bind.annotation.RequestBody;
 @Controller
 public class ArticleController {
 
-    @Autowired
-    private ArticleService articleService;
+  @Autowired
+  private ArticleService articleService;
 
-    @PostMapping("/saveArticle")
-    public ResponseEntity<Article> saveArticle(@RequestBody Article article){
-        Article savedArticle = articleService.saveArticle(article);
-        return new ResponseEntity<>(savedArticle, HttpStatus.CREATED);
-    }
+  @PostMapping("/saveArticle")
+  public ResponseEntity<Article> saveArticle(@RequestBody Article article) {
+    Article savedArticle = articleService.saveArticle(article);
+    return new ResponseEntity<>(savedArticle, HttpStatus.CREATED);
+  }
 
-    @GetMapping("/getArticle/{id}")
-    public ResponseEntity<Article> getArticle(@PathVariable String id){
-        Article article = articleService.getArticle(id);
-        return new ResponseEntity<>(article, HttpStatus.FOUND);
-    }
+  @GetMapping("/getArticle/{id}")
+  public ResponseEntity<Article> getArticle(@PathVariable String id) {
+    Article article = articleService.getArticle(id);
+    return new ResponseEntity<>(article, HttpStatus.FOUND);
+  }
 }

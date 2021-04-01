@@ -1,54 +1,54 @@
 package salary_slip;
 
 public class InsuranceProfile implements InsuranceProfileInterface {
-    private final static double ANNUAL_INSURANCE_STARTING_LIMIT_LEVEL_1 = 8060.0;
-    private final static double ANNUAL_INSURANCE_STARTING_LIMIT_LEVEL_2 = 43000.0;
-    private final static double INSURANCE_RATE_LEVEL_1 = 0.12;
-    private final static double INSURANCE_RATE_LEVEL_2 = 0.02;
-    private double annualInsuranceContribution;
-    private double monthlyInsuranceContribution;
+  private static final double ANNUAL_INSURANCE_STARTING_LIMIT_LEVEL_1 = 8060.0;
+  private static final double ANNUAL_INSURANCE_STARTING_LIMIT_LEVEL_2 = 43000.0;
+  private static final double INSURANCE_RATE_LEVEL_1 = 0.12;
+  private static final double INSURANCE_RATE_LEVEL_2 = 0.02;
+  private static final int MONTHS = 12;
+  private double annualInsuranceContribution;
+  private double monthlyInsuranceContribution;
+  private double annualGrossSalary;
 
-    private double annualGrossSalary;
+  public void calculateInsuranceContribution(double annualGrossSalary) {
+    this.annualGrossSalary = annualGrossSalary;
 
-    public void calculateInsuranceContribution(double annualGrossSalary) {
-        this.annualGrossSalary = annualGrossSalary;
-        if (annualGrossSalary > ANNUAL_INSURANCE_STARTING_LIMIT_LEVEL_2) {
-            calculateLevel2InsuranceContribution();
-        } else if ((annualGrossSalary > ANNUAL_INSURANCE_STARTING_LIMIT_LEVEL_1))
-            calculateLevel1InsuranceContribution();
+    if (annualGrossSalary > ANNUAL_INSURANCE_STARTING_LIMIT_LEVEL_2)
+      calculateLevel2InsuranceContribution();
+    else if ((annualGrossSalary > ANNUAL_INSURANCE_STARTING_LIMIT_LEVEL_1))
+      calculateLevel1InsuranceContribution();
 
-        if (annualInsuranceContribution > 0.0)
-            convertInsuranceToMonthly();
-    }
+    if (annualInsuranceContribution > 0.0)
+      convertInsuranceToMonthly();
+  }
 
-    private void convertInsuranceToMonthly() {
-        monthlyInsuranceContribution = annualInsuranceContribution / 12.0;
-    }
+  private void convertInsuranceToMonthly() {
+    monthlyInsuranceContribution = annualInsuranceContribution / MONTHS;
+  }
 
-    private void calculateLevel1InsuranceContribution() {
-        annualInsuranceContribution += (annualGrossSalary - ANNUAL_INSURANCE_STARTING_LIMIT_LEVEL_1) * INSURANCE_RATE_LEVEL_1;
-        monthlyInsuranceContribution += annualInsuranceContribution / 12.0;
-    }
+  private void calculateLevel1InsuranceContribution() {
+    annualInsuranceContribution += (annualGrossSalary - ANNUAL_INSURANCE_STARTING_LIMIT_LEVEL_1) * INSURANCE_RATE_LEVEL_1;
+    monthlyInsuranceContribution += annualInsuranceContribution / MONTHS;
+  }
 
-    private void calculateLevel2InsuranceContribution() {
-        annualInsuranceContribution += (annualGrossSalary - ANNUAL_INSURANCE_STARTING_LIMIT_LEVEL_2) * INSURANCE_RATE_LEVEL_2;
-        annualInsuranceContribution += (ANNUAL_INSURANCE_STARTING_LIMIT_LEVEL_2 - ANNUAL_INSURANCE_STARTING_LIMIT_LEVEL_1) * INSURANCE_RATE_LEVEL_1;
-    }
+  private void calculateLevel2InsuranceContribution() {
+    annualInsuranceContribution += (annualGrossSalary - ANNUAL_INSURANCE_STARTING_LIMIT_LEVEL_2) * INSURANCE_RATE_LEVEL_2;
+    annualInsuranceContribution += (ANNUAL_INSURANCE_STARTING_LIMIT_LEVEL_2 - ANNUAL_INSURANCE_STARTING_LIMIT_LEVEL_1) * INSURANCE_RATE_LEVEL_1;
+  }
 
-    private double format(double preFormat) {
-        return FormatDecimals.calculate(preFormat);
-    }
+  private static double format(double preFormat) {
+    return FormatDecimals.calculate(preFormat);
+  }
 
-    public double getMonthlyInsuranceContribution() {
-        return format(monthlyInsuranceContribution);
-    }
+  public double getMonthlyInsuranceContribution() {
+    return format(monthlyInsuranceContribution);
+  }
 
-    public double getInsuranceRate() {
-        if (annualGrossSalary > 43000.0)
-            return format(INSURANCE_RATE_LEVEL_2);
-        else if (annualGrossSalary > 8060.0)
-            return format(INSURANCE_RATE_LEVEL_1);
-
-        return 0.0;
-    }
+  public double getInsuranceRate() {
+    if (annualGrossSalary > ANNUAL_INSURANCE_STARTING_LIMIT_LEVEL_2)
+      return INSURANCE_RATE_LEVEL_2;
+    else if (annualGrossSalary > ANNUAL_INSURANCE_STARTING_LIMIT_LEVEL_1)
+      return INSURANCE_RATE_LEVEL_1;
+    else return 0.0;
+  }
 }

@@ -15,21 +15,21 @@ import java.util.Collections;
 @EnableMongoRepositories(basePackages = "com.blogwebapp")
 public class MongoConfig extends AbstractMongoClientConfiguration {
 
-    @Override
-    protected String getDatabaseName() {
-        return "testDb";
-    }
+  @Override
+  protected String getDatabaseName() {
+    return "testDb";
+  }
 
-    @Override
-    public MongoClient mongoClient() {
-        ConnectionString connectionString = new ConnectionString("mongodb://127.0.0.1:27017/testDb");
-        MongoClientSettings mongoClientSettings = MongoClientSettings.builder()
-                .applyConnectionString(connectionString).build();
-        return MongoClients.create(mongoClientSettings);
-    }
+  @Override
+  public MongoClient mongoClient() {
+    ConnectionString connectionString = new ConnectionString("mongodb://127.0.0.1:27017/testDb");
+    MongoClientSettings mongoClientSettings = MongoClientSettings.builder()
+            .applyConnectionString(connectionString).build();
+    return MongoClients.create(mongoClientSettings);
+  }
 
-    @Override
-    public Collection getMappingBasePackages(){
-        return Collections.singleton("com.blogwebapp");
-    }
+  @Override
+  public Collection getMappingBasePackages() {
+    return Collections.singleton("com.blogwebapp");
+  }
 }

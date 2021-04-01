@@ -2,13 +2,13 @@ package patterns.structural.decorator;
 
 public class RaincoatDecorator extends BaseDecorator {
 
-    public RaincoatDecorator(Person wrappee) {
-        super(wrappee);
-    }
+  public RaincoatDecorator(Person wrappee) {
+    super(wrappee);
+  }
 
-    @Override
-    public void wearItem() {
-        super.wearItem();
-        System.out.println("I am now wearing a raincoat");
-    }
+  @Override
+  public void wearItem() {
+    super.wearItem();
+    System.out.println("I am now wearing a raincoat");
+  }
 }

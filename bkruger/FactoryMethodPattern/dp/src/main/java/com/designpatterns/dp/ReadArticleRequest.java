@@ -1,13 +1,13 @@
 package com.designpatterns.dp;
 
 public class ReadArticleRequest implements Request {
-    private String articleId;
+  private String articleId;
 
-    public ReadArticleRequest(String articleId){
-        this.articleId = articleId;
-    }
+  public ReadArticleRequest(String articleId) {
+    this.articleId = articleId;
+  }
 
-    public String getArticleId(){
-        return this.articleId;
-    }
+  public String getArticleId() {
+    return this.articleId;
+  }
 }

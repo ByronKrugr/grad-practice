@@ -6,14 +6,14 @@ import org.springframework.stereotype.Service;
 @Service
 public class ArticleService {
 
-    @Autowired
-    private ArticleRepository articleRepository;
+  @Autowired
+  private ArticleRepository articleRepository;
 
-    public Article saveArticle(Article article){
-        return articleRepository.insert(article);
-    }
+  public Article saveArticle(Article article) {
+    return articleRepository.insert(article);
+  }
 
-    public Article getArticle(String id) {
-        return articleRepository.findById(id).get();
-    }
+  public Article getArticle(String id) {
+    return articleRepository.findById(id).get();
+  }
 }
