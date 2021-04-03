@@ -1,8 +1,6 @@
 package com.blogwebapp.bwa;
 
-import com.blogwebapp.bwa.useCases.*;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.assertj.core.api.Assertions.assertThat;

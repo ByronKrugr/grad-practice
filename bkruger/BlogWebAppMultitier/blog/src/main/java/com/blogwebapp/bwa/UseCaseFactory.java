@@ -1,4 +1,6 @@
-package com.blogwebapp.bwa.useCases;
+package com.blogwebapp.bwa;
+
+import com.blogwebapp.bwa.services.UseCase;
 
 import java.util.HashMap;
 

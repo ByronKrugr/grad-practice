@@ -1,4 +1,10 @@
-package com.blogwebapp.bwa.useCases;
+package com.blogwebapp.bwa;
+
+import com.blogwebapp.bwa.services.UseCase;
+import com.blogwebapp.bwa.services.readArticle.ReadArticleRequest;
+import com.blogwebapp.bwa.services.saveArticle.SaveArticleRequest;
+import com.blogwebapp.bwa.services.readArticle.ReadArticleUseCase;
+import com.blogwebapp.bwa.services.saveArticle.SaveArticleUseCase;
 
 import java.util.HashMap;
 

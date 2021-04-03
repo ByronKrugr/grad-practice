@@ -1,4 +1,4 @@
-package com.blogwebapp.bwa;
+package com.blogwebapp.bwa.repositories;
 
 import org.bson.codecs.pojo.annotations.BsonProperty;
 import org.springframework.data.mongodb.core.mapping.Document;
