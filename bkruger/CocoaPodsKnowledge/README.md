@@ -49,6 +49,5 @@
    - With each change, run `pod lib lint` to test compliance.
 - Replace ReplaceMe.swift with your own Swift file:
    - uncheck "<swift_file_name>_Example" and "<swift_file_name>_Tests" and check "<swift_file_name>".
-- Push the project to Github repo.
-- Ensure you completed Trunk related steps.
-- Push pod to Trunk.
+- Push the project to Github repo and create a tag release and version it to be the same as `s.version`.
+- Ensure you completed Trunk related steps and push pod to Trunk.
