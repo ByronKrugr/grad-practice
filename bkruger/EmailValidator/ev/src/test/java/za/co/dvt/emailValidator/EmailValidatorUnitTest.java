@@ -68,4 +68,9 @@ public class EmailValidatorUnitTest {
         assertEquals(getValidateResult("abc123@abc123."), false);
     }
 
+    @Test
+    public void validateReturnsTrueWhenValidEmail(){
+        assertEquals(getValidateResult("abc124@abc123.abc.abc"), true);
+    }
+
 }
