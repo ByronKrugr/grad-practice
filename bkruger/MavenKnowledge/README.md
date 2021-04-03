@@ -15,7 +15,7 @@
     ```
   -  Can also get values from system properties like `java.version` or `user.home`.
   -  Can also get properties specified in command line:
-    - in `application.properties` specify `command.line.prop=${command.line.prop}` then on the command line execute `Dcommand.line.prop=blahblah`.
+    - in `application.properties` specify `command.line.prop=${command.line.prop}` then on the command line execute `-Dcommand.line.prop=blahblah`.
 - Maven natively supports building projects within projects.
 
 ### II. Maven Build Profiles
