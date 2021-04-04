@@ -1,6 +1,6 @@
-package com.blogwebapp.bwa;
+package com.blogwebapp.bwa.abstractFactoriesAndBuilders;
 
-import com.blogwebapp.bwa.services.Request;
+import com.blogwebapp.bwa.abstractUseCaseComponents.Request;
 
 import java.util.HashMap;
 

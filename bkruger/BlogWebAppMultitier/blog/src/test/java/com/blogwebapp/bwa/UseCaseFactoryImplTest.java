@@ -1,5 +1,6 @@
 package com.blogwebapp.bwa;
 
+import com.blogwebapp.bwa.factoriesAndBuilders.UseCaseFactoryImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.springframework.boot.test.context.SpringBootTest;
 

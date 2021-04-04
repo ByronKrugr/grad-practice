@@ -1,12 +1,10 @@
 package com.blogwebapp.bwa.controllers.readArticle;
 
-import com.blogwebapp.bwa.RequestBuilderImpl;
-import com.blogwebapp.bwa.UseCaseFactoryImpl;
-import com.blogwebapp.bwa.repositories.Article;
-import com.blogwebapp.bwa.ArticleService;
-import com.blogwebapp.bwa.services.Request;
-import com.blogwebapp.bwa.services.Response;
-import com.blogwebapp.bwa.services.UseCase;
+import com.blogwebapp.bwa.abstractUseCaseComponents.Request;
+import com.blogwebapp.bwa.factoriesAndBuilders.RequestBuilderImpl;
+import com.blogwebapp.bwa.factoriesAndBuilders.UseCaseFactoryImpl;
+import com.blogwebapp.bwa.abstractUseCaseComponents.Response;
+import com.blogwebapp.bwa.abstractUseCaseComponents.UseCase;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,12 +16,12 @@ import java.util.HashMap;
 
 @Controller
 public class ArticleReadController {
+    @Autowired
     private UseCaseFactoryImpl useCaseFactory;
     private RequestBuilderImpl requestBuilder;
     private UseCase readArticleUseCase;
 
     public ArticleReadController(){
-        this.useCaseFactory = new UseCaseFactoryImpl();
         this.requestBuilder = new RequestBuilderImpl();
     }
 

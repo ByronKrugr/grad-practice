@@ -14,6 +14,12 @@ public class Article {
     public Article() {
     }
 
+    public Article(String title, String tldr, String content){
+        this.title = title;
+        this.tldr = tldr;
+        this.content = content;
+    }
+
     public String getId() {
         return id;
     }
