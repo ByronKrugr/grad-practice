@@ -1,4 +1,4 @@
-package com.blogwebapp.bwa;
+package com.blogwebapp.bwa.repositories;
 
 import org.bson.codecs.pojo.annotations.BsonProperty;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -12,6 +12,12 @@ public class Article {
     private String content;
 
     public Article() {
+    }
+
+    public Article(String title, String tldr, String content){
+        this.title = title;
+        this.tldr = tldr;
+        this.content = content;
     }
 
     public String getId() {
