@@ -1,16 +1,13 @@
 package salary_slip;
 
 public class Employee {
-  private String id;
-  private String name;
-  private double annualGrossSalary;
-  private double monthlyGrossSalary;
+  private final String id;
+  private final String name;
+  private final double annualGrossSalary;
+  private final double monthlyGrossSalary;
 
   private final TaxProfileInterface taxProfile = new TaxProfile();
   private final InsuranceProfileInterface insuranceProfile = new InsuranceProfile();
-
-  public Employee() {
-  }
 
   public Employee(String id, String name, double annualGrossSalary) {
     final int MONTHS = 12;
