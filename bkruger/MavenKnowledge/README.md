@@ -163,38 +163,39 @@
 
         ```
     - So, the library is used in a project without specifying versions:
-      - ```
-        <modelVersion>4.0.0</modelVersion>
-        <groupId>com.test</groupId>
-        <artifactId>use</artifactId>
-        <version>1.0.0</version>
-        <packaging>jar</packaging>
+      - 
+      ```
+      <modelVersion>4.0.0</modelVersion>
+      <groupId>com.test</groupId>
+      <artifactId>use</artifactId>
+      <version>1.0.0</version>
+      <packaging>jar</packaging>
       
-        <dependencyManagement>
-          <dependencies>
-            <dependency>
-              <groupId>com.test</groupId>
-              <artifactId>bom</artifactId>
-              <version>1.0.0</version>
-              <type>pom</type>
-              <scope>import</scope>
-            </dependency>
-          </dependencies>
-        </dependencyManagement>
-            
+      <dependencyManagement>
         <dependencies>
           <dependency>
             <groupId>com.test</groupId>
-            <artifactId>project1</artifactId>
-          </dependency>
-          
-          <dependency>
-            <groupId>com.test</groupId>
-            <artifactId>project2</artifactId>
+            <artifactId>bom</artifactId>
+            <version>1.0.0</version>
+            <type>pom</type>
+            <scope>import</scope>
           </dependency>
         </dependencies>
+      </dependencyManagement>
+            
+      <dependencies>
+        <dependency>
+          <groupId>com.test</groupId>
+          <artifactId>project1</artifactId>
+        </dependency>
+         
+        <dependency>
+          <groupId>com.test</groupId>
+          <artifactId>project2</artifactId>
+        </dependency>
+      </dependencies>
 
-        ```
+      ```
 
 
 
