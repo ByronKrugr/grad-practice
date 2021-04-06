@@ -84,7 +84,7 @@
           <module>parent</module>
       </modules>
       ```
-    - Parent subproject has BOM POM as parent:
+    - Parent subproject has BOM POM as parent (is also a parent itself):
       ```
       <parent>
         <groupId>com.test</groupId>
