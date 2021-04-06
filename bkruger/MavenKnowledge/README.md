@@ -19,7 +19,13 @@
 - Maven natively supports building projects within projects.
 
 ### II. Maven Build Profiles
-- TODO...
+- Builds must strive for portability (less reliance on local filesystem and more on the repository for metadata).
+- Portability is usually broken by:
+  - Extenal properties (in external files: `settings.xml`):
+    - A property value that is outside the POM and not defined in a corresponding profile inside the POM.
+    - E.g., specifying `appserver` paths in profile in `settings.xml` (`settings.xml` is never distributed when project is deployed).
+  - Incomplete specification of a natural profile set:
+    - E.g., if you only include "dev" and "test" profiles, but not a "prod" profile.
 
 ### III. Maven Build Lifecycle
 - A plugin goal is bound to a phase.
