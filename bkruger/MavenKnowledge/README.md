@@ -55,8 +55,7 @@
     - But it is difficult to sync versions in the project with the library.
     - Here, a BOM can solve this.
   - BOM workflow:
-    - BOM POM defines versions of artifacts in the library:
-      - 
+    - BOM POM defines versions of artifacts in the library: 
       ```
       <modelVersion>4.0.0</modelVersion>
       <groupId>com.test</groupId>
@@ -86,7 +85,6 @@
       </modules>
       ```
     - Parent subproject has BOM POM as parent:
-      - 
       ```
       <parent>
         <groupId>com.test</groupId>
@@ -122,7 +120,6 @@
 
       ```
     - Actual project POM looks like:
-      - 
       ```
       <modelVersion>4.0.0</modelVersion>
       <parent>
@@ -167,7 +164,6 @@
 
       ```
     - So, the library is used in a project without specifying versions:
-      - 
       ```
       <modelVersion>4.0.0</modelVersion>
       <groupId>com.test</groupId>
