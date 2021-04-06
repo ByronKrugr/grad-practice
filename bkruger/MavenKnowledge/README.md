@@ -18,7 +18,7 @@
     - in `application.properties` specify `command.line.prop=${command.line.prop}` then on the command line execute `-Dcommand.line.prop=blahblah`.
 - Maven natively supports building projects within projects. -->
 
-### II. Maven Build Profiles
+### I. Maven Build Profiles
 - Builds must strive for portability (less reliance on local filesystem and more on the repository for metadata).
 - Portability is usually broken by:
   - Extenal properties (in external files: `settings.xml`):
@@ -27,7 +27,7 @@
   - Incomplete specification of a natural profile set:
     - E.g., if you only include "dev" and "test" profiles, but not a "prod" profile.
 
-### III. Maven Build Lifecycle
+### II. Maven Build Lifecycle
 - A plugin goal is bound to a phase.
 - A goal is applicable to all the phases mentioned after it, however, it will only apply if it makes sense:
   - E.g., if you specify the `jar:jar` goal it only runs `jar:jar` to package your code. But if you did not run the `compiler:compile` goal (don't have a compiled project) it will fail. 
@@ -37,7 +37,7 @@
 - A goal not bound to a phase can be executed via direct invocation e.g., `mvn dependency:tree`
 - Some phases have goals bound by default and for the default lifecycle, bindings depend on `<packaging>`.
 
-### IV. Maven Dependency Mechanism *
+### III. Maven Dependency Mechanism *
 - Criteria that limits dependency inclusion:
   - Dependency mediation:
     - When there are multiple versions of an artifact, the one closest to the project in the tree of dependencies is chosen.
@@ -56,112 +56,116 @@
     - Here, a BOM can solve this.
   - BOM workflow:
     - BOM POM defines versions of artifacts in the library:
-      - ```
-        <modelVersion>4.0.0</modelVersion>
-        <groupId>com.test</groupId>
-        <artifactId>bom</artifactId>
-        <version>1.0.0</version>
-        <packaging>pom</packaging>
+      - 
+      ```
+      <modelVersion>4.0.0</modelVersion>
+      <groupId>com.test</groupId>
+      <artifactId>bom</artifactId>
+      <version>1.0.0</version>
+      <packaging>pom</packaging>
 
-        <properties>
-          <project1Version>1.0.0</project1Version>
-          <project2Version>1.0.0</project2Version>
-        </properties>
+      <properties>
+        <project1Version>1.0.0</project1Version>
+        <project2Version>1.0.0</project2Version>
+      </properties>
 
-        <dependencyManagement>
-            <dependencies>
-              <dependency>
-                <groupId>com.test</groupId>
-                <artifactId>project1</artifactId>
-                <version>${project1Version}</version>
-              </dependency>
-
-              [similar for project2 as well]
-            </dependencies>        
-        </dependencyManagement>
-
-        <modules>
-            <module>parent</module>
-        </modules>
-        ```
-    - Parent subproject has BOM POM as parent:
-      - ```
-        <parent>
-          <groupId>com.test</groupId>
-          <version>1.0.0</version>
-          <artifactId>bom</artifactId>
-        </parent>
-      
-        <groupId>com.test</groupId>
-        <artifactId>parent</artifactId>
-        <version>1.0.0</version>
-        <packaging>pom</packaging>
-        
-        <dependencyManagement>
+      <dependencyManagement>
           <dependencies>
             <dependency>
-              <groupId>log4j</groupId>
-              <artifactId>log4j</artifactId>
-              <version>1.2.12</version>
+              <groupId>com.test</groupId>
+              <artifactId>project1</artifactId>
+              <version>${project1Version}</version>
             </dependency>
 
-            <dependency>
-              <groupId>commons-logging</groupId>
-              <artifactId>commons-logging</artifactId>
-              <version>1.1.1</version>
-            </dependency>
-          </dependencies>
+            [similar for project2 as well]
+          </dependencies>        
+      </dependencyManagement>
 
-        <modules>
-          <module>project1</module>
-          <module>project2</module>
-        </modules>
-
-        ```
-    - Actual project POM looks like:
-      - ```
-        <modelVersion>4.0.0</modelVersion>
-        <parent>
-          <groupId>com.test</groupId>
-          <version>1.0.0</version>
-          <artifactId>parent</artifactId>
-        </parent>
-
+      <modules>
+          <module>parent</module>
+      </modules>
+      ```
+    - Parent subproject has BOM POM as parent:
+      - 
+      ```
+      <parent>
         <groupId>com.test</groupId>
-        <artifactId>project1</artifactId>
-        <version>${project1Version}</version>
-        <packaging>jar</packaging>
+        <version>1.0.0</version>
+        <artifactId>bom</artifactId>
+      </parent>
+    
+      <groupId>com.test</groupId>
+      <artifactId>parent</artifactId>
+      <version>1.0.0</version>
+      <packaging>pom</packaging>
       
+      <dependencyManagement>
         <dependencies>
           <dependency>
             <groupId>log4j</groupId>
             <artifactId>log4j</artifactId>
+            <version>1.2.12</version>
           </dependency>
-        </dependencies>
 
-        ```
-
-        ```
-        <modelVersion>4.0.0</modelVersion>
-        <parent>
-          <groupId>com.test</groupId>
-          <version>1.0.0</version>
-          <artifactId>parent</artifactId>
-        </parent>
-  
-        <groupId>com.test</groupId>
-        <artifactId>project2</artifactId>
-        <version>${project2Version}</version>
-        <packaging>jar</packaging>
- 
-        <dependencies>
           <dependency>
             <groupId>commons-logging</groupId>
             <artifactId>commons-logging</artifactId>
+            <version>1.1.1</version>
           </dependency>
         </dependencies>
+      </dependencyManagement>
 
-        ```
+      <modules>
+        <module>project1</module>
+        <module>project2</module>
+      </modules>
+
+      ```
+    - Actual project POM looks like:
+      - 
+      ```
+      <modelVersion>4.0.0</modelVersion>
+      <parent>
+        <groupId>com.test</groupId>
+        <version>1.0.0</version>
+        <artifactId>parent</artifactId>
+      </parent>
+
+      <groupId>com.test</groupId>
+      <artifactId>project1</artifactId>
+      <version>${project1Version}</version>
+      <packaging>jar</packaging>
+      
+      <dependencies>
+        <dependency>
+          <groupId>log4j</groupId>
+          <artifactId>log4j</artifactId>
+        </dependency>
+      </dependencies>
+
+      ```
+
+      ```
+      <modelVersion>4.0.0</modelVersion>
+      <parent>
+        <groupId>com.test</groupId>
+        <version>1.0.0</version>
+        <artifactId>parent</artifactId>
+      </parent>
+  
+      <groupId>com.test</groupId>
+      <artifactId>project2</artifactId>
+      <version>${project2Version}</version>
+      <packaging>jar</packaging>
+ 
+      <dependencies>
+        <dependency>
+          <groupId>commons-logging</groupId>
+          <artifactId>commons-logging</artifactId>
+        </dependency>
+      </dependencies>
+
+      ```
     - So, the library is used in a project without specifying versions:
       - 
       ```
