@@ -41,6 +41,8 @@
 - Criteria that limits dependency inclusion:
   - Dependency mediation:
     - When there are multiple versions of an artifact, the one closest to the project in the tree of dependencies is chosen.
+    ![alt text](https://github.com/ByronKrugr/grad-practice/bkruger/MavenKnowledge/imgs/1.png?raw=true)
+    ![alt text](https://github.com/ByronKrugr/grad-practice/bkruger/MavenKnowledge/imgs/2.png?raw=true)
     - So in left image, project A uses D 1.0 since it is closer to A than D 2.0.
     - In right image, D 2.0 usage is forced by adding it to project A.
   - Dependency management:
@@ -49,7 +51,6 @@
 - Dependency management (`<dependencyManagement>`) takes precendance over dependency mediation for transitive depedencies.
 - A child POM takes precedence over its parent POM.
 - The concept of a bill of materials:
-<!--   - An `import` `<scope>` is only for a dependency of type `pom` in which case the dependency is replaced with the dependencies in the POM's `<dependencyManagement>`. -->
   - A project can only inherit from a single parent and to accommodate for this, projects can import managed dependencies from other projects (with `<packaging>` type `pom`) by declaring a dependency on them w/ `import` `<scope>`.
   - Imports are effective when defining a library of related artifacts and having a project use one or more artifacts from this library.
     - But it is difficult to sync versions in the project with the library.
