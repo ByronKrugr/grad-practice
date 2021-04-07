@@ -37,7 +37,7 @@
 - A goal not bound to a phase can be executed via direct invocation e.g., `mvn dependency:tree`
 - Some phases have goals bound by default and for the default lifecycle, bindings depend on `<packaging>`.
 
-### III. Maven Dependency Mechanism *
+### III. Maven Dependency Mechanism
 - Criteria that limits dependency inclusion:
   - Dependency mediation:
     - When there are multiple versions of an artifact, the one closest to the project in the tree of dependencies is chosen.
