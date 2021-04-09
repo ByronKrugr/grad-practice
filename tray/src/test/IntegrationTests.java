@@ -15,7 +15,7 @@ class IntegrationTests {
   }
 
   private void assertId(String expected) {
-    assertEquals(expected, salarySlip.getEmployee().getId());
+    assertEquals(expected, salarySlip.getEmployee().getEmployeeId());
   }
 
   private void assertTaxPayable(double expected) {

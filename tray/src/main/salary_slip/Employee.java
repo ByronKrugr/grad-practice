@@ -1,27 +1,33 @@
 package salary_slip;
 
+import org.bson.codecs.pojo.annotations.BsonCreator;
+import org.bson.codecs.pojo.annotations.BsonProperty;
+
 public class Employee {
-  private final String id;
+  private final String employeeId;
   private final String name;
   private final double annualGrossSalary;
   private final double monthlyGrossSalary;
 
+  @BsonProperty
   private final TaxProfileInterface taxProfile = new TaxProfile();
+  @BsonProperty(useDiscriminator = true)
   private final InsuranceProfileInterface insuranceProfile = new InsuranceProfile();
 
-  public Employee(String id, String name, double annualGrossSalary) {
+  @BsonCreator
+  public Employee(@BsonProperty("employeeId") String employeeId, @BsonProperty("name") String name, @BsonProperty("annualGrossSalary") double annualGrossSalary) {
     final int MONTHS = 12;
-    this.id = id;
+    this.employeeId = employeeId;
     this.name = name;
     this.annualGrossSalary = annualGrossSalary;
-    this.monthlyGrossSalary = annualGrossSalary / MONTHS;
+    monthlyGrossSalary = annualGrossSalary / MONTHS;
 
-    this.taxProfile.calculateTaxAmountDue(this.annualGrossSalary);
-    this.insuranceProfile.calculateInsuranceContribution(this.annualGrossSalary);
+    taxProfile.calculateTaxAmountDue(this.annualGrossSalary);
+    insuranceProfile.calculateInsuranceContribution(this.annualGrossSalary);
   }
 
-  public String getId() {
-    return id;
+  public String getEmployeeId() {
+    return employeeId;
   }
 
   public String getName() {

@@ -31,7 +31,7 @@ class SalarySlipTest {
 
   @Test
   void employeeDetailsArePrintedCorrectly() throws Exception {
-    when(employee.getId()).thenReturn("1");
+    when(employee.getEmployeeId()).thenReturn("1");
     when(employee.getName()).thenReturn("Taylor");
     when(employee.getAnnualGrossSalary()).thenReturn(12000.0);
     when(employee.getMonthlyGrossSalary()).thenReturn(1000.0);

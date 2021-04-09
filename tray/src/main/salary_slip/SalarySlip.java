@@ -1,7 +1,7 @@
 package salary_slip;
 
 public class SalarySlip implements SalarySlipInterface {
-  private Employee employee;
+  private final Employee employee;
 
   public SalarySlip(Employee employee) {
     this.employee = employee;
@@ -15,7 +15,7 @@ public class SalarySlip implements SalarySlipInterface {
   @Override
   public String getEmployeeDetails() {
     return "Employee details are as follows: " +
-            "\nId: " + employee.getId() +
+            "\nId: " + employee.getEmployeeId() +
             "\nName: " + employee.getName() +
             "\nAnnual Gross Salary: R" + employee.getAnnualGrossSalary() +
             "\nGross Salary: R" + employee.getMonthlyGrossSalary() +

@@ -10,6 +10,8 @@ public class InsuranceProfile implements InsuranceProfileInterface {
   private double monthlyInsuranceContribution;
   private double annualGrossSalary;
 
+  public InsuranceProfile(){}
+
   public void calculateInsuranceContribution(double annualGrossSalary) {
     this.annualGrossSalary = annualGrossSalary;
 

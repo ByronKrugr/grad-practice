@@ -11,10 +11,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Mongo {
-  MongoClient mongoClient;
-  MongoDatabase db;
-  MongoCollection<Document> mongoCollection;
-  MongoCollection<Document> counterCollection;
+  private MongoClient mongoClient;
+  private MongoDatabase db;
+  private MongoCollection<Document> mongoCollection;
+  private MongoCollection<Document> counterCollection;
 
   public Mongo(String db, String collection) {
     mongoClient = new MongoClient();

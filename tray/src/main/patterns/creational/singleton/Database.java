@@ -1,7 +1,7 @@
 package patterns.creational.singleton;
 
-public class Database {
-  private static Database db = null;
+public final class Database {
+  private static Database db;
 
   private Database() {
   }
