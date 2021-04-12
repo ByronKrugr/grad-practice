@@ -2,17 +2,19 @@ package salary_slip;
 
 import org.bson.codecs.pojo.annotations.BsonCreator;
 import org.bson.codecs.pojo.annotations.BsonProperty;
+import org.springframework.data.annotation.Id;
 
 public class Employee {
-  private final String employeeId;
-  private final String name;
-  private final double annualGrossSalary;
-  private final double monthlyGrossSalary;
+  @Id
+  private String employeeId;
+  private String name;
+  private double annualGrossSalary;
+  private double monthlyGrossSalary;
 
   @BsonProperty
-  private final TaxProfileInterface taxProfile = new TaxProfile();
-  @BsonProperty(useDiscriminator = true)
-  private final InsuranceProfileInterface insuranceProfile = new InsuranceProfile();
+  private TaxProfileInterface taxProfile = new TaxProfile();
+  @BsonProperty
+  private InsuranceProfileInterface insuranceProfile = new InsuranceProfile();
 
   @BsonCreator
   public Employee(@BsonProperty("employeeId") String employeeId, @BsonProperty("name") String name, @BsonProperty("annualGrossSalary") double annualGrossSalary) {
