@@ -1,0 +1,70 @@
+openapi: "3.0.0"
+info:
+  title: "Adopting Bitcoin"
+  description: "An online blog explaining everything about Bitcoin."
+  version: "1.0.0"
+
+paths:
+  /create:
+    post:
+      summary: "Create a new bitcoin-related article."
+      operationId: "C001"
+      parameters:
+        - name: "title"
+          in: "query"
+          required: true
+          schema:
+            type: string
+        - name: "tldr"
+          in: "query"
+          required: true
+          schema:
+            type: string
+        - name: "content"
+          in: "query"
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: "Newly created article."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Article"
+  /read/{id}:
+    get:
+      summary: "Read a bitcoin-related article."
+      operationId: "R001"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: The desired article.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Article'
+components:
+  schemas:
+    Article:
+      type: object
+      required:
+        - title
+        - tldr
+        - content
+      properties:
+        title:
+          type: string
+        tldr:
+          type: string
+        content:
+          type: string
+
+
+
+
