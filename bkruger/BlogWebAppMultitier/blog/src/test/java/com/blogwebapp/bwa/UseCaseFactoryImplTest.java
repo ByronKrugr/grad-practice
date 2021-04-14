@@ -2,6 +2,7 @@ package com.blogwebapp.bwa;
 
 import com.blogwebapp.bwa.factoriesAndBuilders.UseCaseFactoryImpl;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -17,13 +18,13 @@ public class UseCaseFactoryImplTest {
         this.useCaseFactoryImpl = new UseCaseFactoryImpl();
     }
 
-//    @Test
-//    public void makeUseCaseMethodThrowsExceptionWhenInvalidString(){
-//        Exception e = assertThrows(IllegalArgumentException.class, () -> {
-//            useCaseFactoryImpl.makeUseCase("INVALID");
-//        });
-//        assertThat(e.getMessage()).isEqualTo("Invalid use case specified");
-//    }
+    @Test
+    public void makeUseCaseMethodThrowsExceptionWhenInvalidString(){
+        Exception e = assertThrows(IllegalArgumentException.class, () -> {
+            useCaseFactoryImpl.makeUseCase("INVALID");
+        });
+        assertThat(e.getMessage()).isEqualTo("Invalid use case specified");
+    }
 //
 //    @Test
 //    public void makeUseCaseMethodReturnsSaveArticleUseCaseWhenSaveArticleString(){
