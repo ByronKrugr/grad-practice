@@ -16,16 +16,7 @@
 	<properties>
 		<java.version>11</java.version>
 		<project.test.result.directory>${project.build.directory}/test-results</project.test.result.directory>
-		<sonar.host.url>http://localhost:9000</sonar.host.url>
-		<sonar.scm.provider>git</sonar.scm.provider>
-		<sonar.java.codeCoveragePlugin>jacoco</sonar.java.codeCoveragePlugin>
 		<sonar.coverage.jacoco.xmlReportPaths>${project.test.result.directory}/jacoco/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
-		<sonar.exclusions>
-			**/*.xml
-		</sonar.exclusions>
-		<sonar.coverage.exclusions>
-			**/qualitymeasurementsample/*
-		</sonar.coverage.exclusions>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -60,7 +51,7 @@
 			<plugin>
 				<groupId>org.jacoco</groupId>
 				<artifactId>jacoco-maven-plugin</artifactId>
-				<version>0.8.5</version>
+				<version>0.8.6</version>
 				<executions>
 					<execution>
 						<id>pre-test</id>
