@@ -21,4 +21,11 @@ public class ArticleBuilderUnitTest {
         ArticleBuilder articleBuilder = new ArticleBuilder();
         Article article = articleBuilder.build();
     }
+
+    @Test
+    public void canCreateArticleUsingBuilder(){
+        ArticleBuilder articleBuilder = new ArticleBuilder();
+        Article article = new Article(articleBuilder);
+    }
+
 }

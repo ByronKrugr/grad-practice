@@ -20,6 +20,9 @@ public class Article {
         this.content = content;
     }
 
+    public Article(ArticleBuilder articleBuilder) {
+    }
+
     public String getId() {
         return id;
     }
