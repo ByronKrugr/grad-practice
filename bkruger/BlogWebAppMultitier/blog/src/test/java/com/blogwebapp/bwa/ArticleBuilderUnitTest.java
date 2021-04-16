@@ -35,4 +35,12 @@ public class ArticleBuilderUnitTest {
         assertThat(article.getId()).isEqualTo("id");
     }
 
+    @Test
+    public void canBuildArticleWithTitle(){
+        ArticleBuilder articleBuilder = new ArticleBuilder();
+        Article article = articleBuilder.withId("id").withTitle("title").build();
+        assertThat(article.getId()).isEqualTo("id");
+        assertThat(article.getTitle()).isEqualTo("title");
+    }
+
 }
