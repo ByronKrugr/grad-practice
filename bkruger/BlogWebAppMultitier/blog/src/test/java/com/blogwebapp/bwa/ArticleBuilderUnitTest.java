@@ -16,16 +16,23 @@ public class ArticleBuilderUnitTest {
 //        ArticleBuilder articleBuilder = new ArticleBuilder();
 //    }
 //
-    @Test
-    public void canBuildEmptyArticle(){
-        ArticleBuilder articleBuilder = new ArticleBuilder();
-        Article article = articleBuilder.build();
-    }
+//    @Test
+//    public void canBuildEmptyArticle(){
+//        ArticleBuilder articleBuilder = new ArticleBuilder();
+//        Article article = articleBuilder.build();
+//    }
+//
+//    @Test
+//    public void canCreateArticleUsingBuilder(){
+//        ArticleBuilder articleBuilder = new ArticleBuilder();
+//        Article article = new Article(articleBuilder);
+//    }
 
     @Test
-    public void canCreateArticleUsingBuilder(){
+    public void canbBuildArticleWithId(){
         ArticleBuilder articleBuilder = new ArticleBuilder();
-        Article article = new Article(articleBuilder);
+        Article article = articleBuilder.withId("id").build();
+        assertThat(article.getId()).isEqualTo("id");
     }
 
 }
