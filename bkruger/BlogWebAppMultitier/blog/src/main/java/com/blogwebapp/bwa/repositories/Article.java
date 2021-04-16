@@ -21,6 +21,10 @@ public class Article {
     }
 
     public Article(ArticleBuilder articleBuilder) {
+        this.id=articleBuilder.getId();
+        this.title=articleBuilder.getTitle();
+        this.tldr=articleBuilder.getTldr();
+        this.content=articleBuilder.getContent();
     }
 
     public String getId() {

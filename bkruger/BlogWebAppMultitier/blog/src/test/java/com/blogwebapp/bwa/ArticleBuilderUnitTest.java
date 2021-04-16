@@ -42,14 +42,14 @@ public class ArticleBuilderUnitTest {
     }
 
     @Test
-    public void canBuildArticleWithTitle(){
+    public void canBuildArticleWithIdAndTitle(){
         Article article = articleBuilder.withId("id").withTitle("title").build();
         assertThat(article.getId()).isEqualTo("id");
         assertThat(article.getTitle()).isEqualTo("title");
     }
 
     @Test
-    public void canBuildArticleWithTldr(){
+    public void canBuildArticleWithIdTitleAndTldr(){
         Article article = articleBuilder.withId("id").withTitle("title").withTldr("tldr").build();
         assertThat(article.getId()).isEqualTo("id");
         assertThat(article.getTitle()).isEqualTo("title");
@@ -57,12 +57,21 @@ public class ArticleBuilderUnitTest {
     }
 
     @Test
-    public void canBuildArticleWithContent(){
+    public void canBuildArticleWithIdTitleTldrAndContent(){
         Article article = articleBuilder.withId("id").withTitle("title").withTldr("tldr").withContent("content").build();
         assertThat(article.getId()).isEqualTo("id");
         assertThat(article.getTitle()).isEqualTo("title");
         assertThat(article.getTldr()).isEqualTo("tldr");
         assertThat(article.getContent()).isEqualTo("content");
+    }
+
+    @Test
+    public void canBuildArticleWithIdTitleTldrAndContentOfDynamicValie(){
+        Article article = articleBuilder.withId("id1").withTitle("title1").withTldr("tldr1").withContent("content1").build();
+        assertThat(article.getId()).isEqualTo("id1");
+        assertThat(article.getTitle()).isEqualTo("title1");
+        assertThat(article.getTldr()).isEqualTo("tldr1");
+        assertThat(article.getContent()).isEqualTo("content1");
     }
 
 }

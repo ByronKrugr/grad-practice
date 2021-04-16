@@ -7,12 +7,7 @@ public class ArticleBuilder {
     private String content;
 
     public Article build() {
-        Article article = new Article();
-        article.setId("id");
-        article.setTitle("title");
-        article.setTldr("tldr");
-        article.setContent("content");
-        return article;
+        return new Article(this);
     }
 
     public ArticleBuilder withId(String id) {
@@ -33,5 +28,21 @@ public class ArticleBuilder {
     public ArticleBuilder withContent(String content) {
         this.content=content;
         return this;
+    }
+
+    public String getId() {
+        return this.id;
+    }
+
+    public String getTitle() {
+        return this.title;
+    }
+
+    public String getTldr() {
+        return this.tldr;
+    }
+
+    public String getContent() {
+        return this.content;
     }
 }
