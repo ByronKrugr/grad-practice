@@ -2,8 +2,8 @@ package com.blogwebapp.bwa;
 
 import com.blogwebapp.bwa.repositories.Article;
 import com.blogwebapp.bwa.repositories.ArticleBuilder;
+import org.junit.Before;
 import org.junit.Test;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -30,7 +30,7 @@ public class ArticleBuilderUnitTest {
 //    }
     private ArticleBuilder articleBuilder;
 
-    @BeforeEach
+    @Before
     public void setUp(){
         this.articleBuilder = new ArticleBuilder();
     }
@@ -46,6 +46,14 @@ public class ArticleBuilderUnitTest {
         Article article = articleBuilder.withId("id").withTitle("title").build();
         assertThat(article.getId()).isEqualTo("id");
         assertThat(article.getTitle()).isEqualTo("title");
+    }
+
+    @Test
+    public void canBuildArticleWithTldr(){
+        Article article = articleBuilder.withId("id").withTitle("title").withTldr("tldr").build();
+        assertThat(article.getId()).isEqualTo("id");
+        assertThat(article.getTitle()).isEqualTo("title");
+        assertThat(article.getTldr()).isEqualTo("tldr");
     }
 
 }
