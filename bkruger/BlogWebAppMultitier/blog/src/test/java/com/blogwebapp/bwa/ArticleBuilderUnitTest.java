@@ -56,4 +56,13 @@ public class ArticleBuilderUnitTest {
         assertThat(article.getTldr()).isEqualTo("tldr");
     }
 
+    @Test
+    public void canBuildArticleWithContent(){
+        Article article = articleBuilder.withId("id").withTitle("title").withTldr("tldr").withContent("content").build();
+        assertThat(article.getId()).isEqualTo("id");
+        assertThat(article.getTitle()).isEqualTo("title");
+        assertThat(article.getTldr()).isEqualTo("tldr");
+        assertThat(article.getContent()).isEqualTo("content");
+    }
+
 }
