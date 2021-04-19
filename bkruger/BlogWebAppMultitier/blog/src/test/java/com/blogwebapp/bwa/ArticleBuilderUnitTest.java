@@ -74,4 +74,13 @@ public class ArticleBuilderUnitTest {
         assertThat(article.getContent()).isEqualTo("content1");
     }
 
+    @Test
+    public void canBuildArticleWithIdTitleTldrAndContentOfDynamicValie2(){
+        Article article = articleBuilder.withId("abcd123").withTitle("efgh456").withTldr("ijkl7890").withContent("mnop9876").build();
+        assertThat(article.getId()).isEqualTo("abcd123");
+        assertThat(article.getTitle()).isEqualTo("efgh456");
+        assertThat(article.getTldr()).isEqualTo("ijkl7890");
+        assertThat(article.getContent()).isEqualTo("mnop9876");
+    }
+
 }
