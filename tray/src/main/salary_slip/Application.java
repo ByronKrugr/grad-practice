@@ -12,11 +12,5 @@ public class Application {
 
   public static void main(String[] args) throws JsonProcessingException {
     SpringApplication.run(Application.class, args);
-//    ObjectMapper objectMapper = new ObjectMapper();
-//    EmployeeService employeeService = new EmployeeService();
-//    //employeeService.addEmployee();
-//    List<Employee> employees = employeeService.getAllEmployees();
-//    for (Employee e : employees)
-//      System.out.println(objectMapper.writeValueAsString(e));
   }
 }
